@@ -1,0 +1,387 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01E8660B2BBF0A15009939D8 /* autosign.c in Sources */ = {isa = PBXBuildFile; fileRef = 01E8660A2BBF0A15009939D8 /* autosign.c */; };
+		01E8660E2BBF0AAA009939D8 /* substrate.h in Headers */ = {isa = PBXBuildFile; fileRef = 01E8660D2BBF0AAA009939D8 /* substrate.h */; };
+		01E866112BBF0B15009939D8 /* libellekit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E866102BBF0B15009939D8 /* libellekit.tbd */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01E866032BBF0993009939D8 /* libautosign.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libautosign.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		01E8660A2BBF0A15009939D8 /* autosign.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = autosign.c; sourceTree = "<group>"; };
+		01E8660D2BBF0AAA009939D8 /* substrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
+		01E866102BBF0B15009939D8 /* libellekit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = libellekit.tbd; sourceTree = "<group>"; };
+		01E866122BBF0BDA009939D8 /* autosign.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = autosign.plist; sourceTree = "<group>"; };
+		01E866132BBF1AF8009939D8 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		01E866162BBF1C16009939D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01E866012BBF0993009939D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01E866112BBF0B15009939D8 /* libellekit.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01E865FA2BBF0993009939D8 = {
+			isa = PBXGroup;
+			children = (
+				01E866162BBF1C16009939D8 /* Info.plist */,
+				01E866132BBF1AF8009939D8 /* control */,
+				01E866122BBF0BDA009939D8 /* autosign.plist */,
+				01E8660C2BBF0A6C009939D8 /* include */,
+				01E8660A2BBF0A15009939D8 /* autosign.c */,
+				01E866042BBF0993009939D8 /* Products */,
+				01E8660F2BBF0B15009939D8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		01E866042BBF0993009939D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01E866032BBF0993009939D8 /* libautosign.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01E8660C2BBF0A6C009939D8 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				01E8660D2BBF0AAA009939D8 /* substrate.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		01E8660F2BBF0B15009939D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01E866102BBF0B15009939D8 /* libellekit.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		01E865FF2BBF0993009939D8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01E8660E2BBF0AAA009939D8 /* substrate.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		01E866022BBF0993009939D8 /* autosign */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01E866072BBF0993009939D8 /* Build configuration list for PBXNativeTarget "autosign" */;
+			buildPhases = (
+				01E865FF2BBF0993009939D8 /* Headers */,
+				01E866002BBF0993009939D8 /* Sources */,
+				01E866012BBF0993009939D8 /* Frameworks */,
+				01E866152BBF1BA7009939D8 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = autosign;
+			productName = autosign;
+			productReference = 01E866032BBF0993009939D8 /* libautosign.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01E865FB2BBF0993009939D8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					01E866022BBF0993009939D8 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 01E865FE2BBF0993009939D8 /* Build configuration list for PBXProject "autosign" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 01E865FA2BBF0993009939D8;
+			productRefGroup = 01E866042BBF0993009939D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01E866022BBF0993009939D8 /* autosign */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01E866152BBF1BA7009939D8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/libautosign.dylib",
+				"$(SRCROOT)/control",
+				"$(SRCROOT)/autosign.plist",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/autosign_$(MARKETING_VERSION)_iphoneos-arm.deb",
+				"$(BUILT_PRODUCTS_DIR)/autosign_$(MARKETING_VERSION)_appletvos-arm64.deb",
+				"$(BUILT_PRODUCTS_DIR)/autosign_$(MARKETING_VERSION)+debug_appletvos-arm64.deb",
+				"$(BUILT_PRODUCTS_DIR)/autosign_$(MARKETING_VERSION)+debug_iphoneos-arm.deb",
+				"$(BUILT_PRODUCTS_DIR)/autosign.dylib",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -e\nset -o xtrace\nexport PATH=\"/opt/procursus/bin:/opt/procursus/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH\"\n\nif [[ ${BUILT_PRODUCTS_DIR} = *\"simulator\"* ]]; then\n    exit 0;\nfi\n\nif [ -d \"${BUILT_PRODUCTS_DIR}/Build\" ]; then\n    rm -r \"${BUILT_PRODUCTS_DIR}/Build\"\nfi\n\necho $PWD\n\nVERSION=\"$MARKETING_VERSION\"\nif [[ ${BUILT_PRODUCTS_DIR} == *\"Build/Products/Debug\"* ]]; then\n    VERSION=\"$VERSION+debug\"\nfi\n\nAUTOSIGN_TMP=\"$(mktemp -d)/autosign_dylib_sign\"\nmkdir -p \"${AUTOSIGN_TMP}\"\ncp -aL \"${BUILT_PRODUCTS_DIR}/libautosign.dylib\" \"${AUTOSIGN_TMP}/autosign.dylib\"\ncodesign -fs - \"${AUTOSIGN_TMP}/autosign.dylib\"\ncp -a \"${AUTOSIGN_TMP}/autosign.dylib\" \"${BUILT_PRODUCTS_DIR}\"\nrm -rf \"${AUTOSIGN_TMP}\"\n\ngen_control() {\n    sed -e \"s/@VERSION@/${1}/\" -e \"s/@ARCH@/${2}/\" \"${PROJECT_DIR}/\"control\n}\n\ngen_deb() {\n    DEB_ROOT=\"$(mktemp -d)/autosign_${1}_${2}\"\n    mkdir -p \"${DEB_ROOT}\"\n    pushd \"${DEB_ROOT}\"\n    mkdir DEBIAN\n    mkdir -p \"Library/MobileSubstrate/DynamicLibraries\"\n    cp -a \"${BUILT_PRODUCTS_DIR}/autosign.dylib\" \"Library/MobileSubstrate/DynamicLibraries\"\n    cp -a \"${SRCROOT}/autosign.plist\" \"Library/MobileSubstrate/DynamicLibraries\"\n    gen_control \"$1\" \"$2\" > DEBIAN/control\n    popd\n    dpkg-deb --root-owner-group --build \"${DEB_ROOT}\" \"${BUILT_PRODUCTS_DIR}/autosign_${1}_${2}.deb\"\n    rm -rf \"${DEB_ROOT}\"\n    echo \"Deb generated at: ${BUILT_PRODUCTS_DIR}/autosign_${1}_${2}.deb\"\n}\n\nif [[ ${BUILT_PRODUCTS_DIR} == *\"iphoneos\"* ]]; then\n    gen_deb \"$VERSION\" iphoneos-arm\nelif [[ ${BUILT_PRODUCTS_DIR} == *\"appletvos\"* ]]; then\n    gen_deb \"$VERSION\" appletvos-arm64\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01E866002BBF0993009939D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01E8660B2BBF0A15009939D8 /* autosign.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		01E866052BBF0993009939D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				AD_HOC_CODE_SIGNING_ALLOWED = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					arm64,
+					arm64e,
+				);
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/include";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "appletvos iphoneos";
+			};
+			name = Debug;
+		};
+		01E866062BBF0993009939D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				AD_HOC_CODE_SIGNING_ALLOWED = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					arm64,
+					arm64e,
+				);
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/include";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "appletvos iphoneos";
+			};
+			name = Release;
+		};
+		01E866082BBF0993009939D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LD_DYLIB_INSTALL_NAME = /Library/MobileSubstrate/DynamicLibraries/autosign.dylib;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/Library/Frameworks,
+					/var/jb/Library/Frameworks,
+					/cores/binpack/Library/Frameworks,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		01E866092BBF0993009939D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LD_DYLIB_INSTALL_NAME = /Library/MobileSubstrate/DynamicLibraries/autosign.dylib;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/Library/Frameworks,
+					/var/jb/Library/Frameworks,
+					/cores/binpack/Library/Frameworks,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01E865FE2BBF0993009939D8 /* Build configuration list for PBXProject "autosign" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01E866052BBF0993009939D8 /* Debug */,
+				01E866062BBF0993009939D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01E866072BBF0993009939D8 /* Build configuration list for PBXNativeTarget "autosign" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01E866082BBF0993009939D8 /* Debug */,
+				01E866092BBF0993009939D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01E865FB2BBF0993009939D8 /* Project object */;
+}

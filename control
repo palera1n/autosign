@@ -1,0 +1,7 @@
+Package: autosign
+Architecture: @ARCH@
+Version: @VERSION@
+Section: Tweaks
+Maintainer: Nick Chan <towinchenmi@gmail.com>
+Depends: ldid (>= 2.1.5-procursus7), mobilesubstrate
+Description: Automatically resign installed packages
