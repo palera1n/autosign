@@ -194,7 +194,7 @@ int close_hook(int fd) {
         if (stat_retval == 0 
             && S_ISREG(st.st_mode)
             && st.st_size > 0x100
-            && stringEndsWith(path, ".dpkg-new")) {
+            && (stringEndsWith(path, ".dpkg-new") || strncmp(path, "/Library/dpkg/tmp.ci", 20) == 0)) {
             int autosign_retval = autosign(path, &st);
             if (autosign_retval) {
                 log("autosign failed with code %d\n", autosign_retval);
