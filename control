@@ -3,5 +3,5 @@ Architecture: @ARCH@
 Version: @VERSION@
 Section: Tweaks
 Maintainer: Nick Chan <towinchenmi@gmail.com>
-Depends: ldid (>= 2.1.5-procursus7), mobilesubstrate
+Depends: ldid (>= 2.1.5-procursus7), mobilesubstrate, firmware (>= 12.0)
 Description: Automatically resign installed packages

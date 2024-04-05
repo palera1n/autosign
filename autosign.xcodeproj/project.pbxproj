@@ -159,7 +159,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "set -e\nset -o xtrace\nexport PATH=\"/opt/procursus/bin:/opt/procursus/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH\"\n\nif [[ ${BUILT_PRODUCTS_DIR} = *\"simulator\"* ]]; then\n    exit 0;\nfi\n\nif [ -d \"${BUILT_PRODUCTS_DIR}/Build\" ]; then\n    rm -r \"${BUILT_PRODUCTS_DIR}/Build\"\nfi\n\necho $PWD\n\nVERSION=\"$MARKETING_VERSION\"\nif [[ ${BUILT_PRODUCTS_DIR} == *\"Build/Products/Debug\"* ]]; then\n    VERSION=\"$VERSION+debug\"\nfi\n\nAUTOSIGN_TMP=\"$(mktemp -d)/autosign_dylib_sign\"\nmkdir -p \"${AUTOSIGN_TMP}\"\ncp -aL \"${BUILT_PRODUCTS_DIR}/libautosign.dylib\" \"${AUTOSIGN_TMP}/autosign.dylib\"\ncodesign -fs - \"${AUTOSIGN_TMP}/autosign.dylib\"\ncp -a \"${AUTOSIGN_TMP}/autosign.dylib\" \"${BUILT_PRODUCTS_DIR}\"\nrm -rf \"${AUTOSIGN_TMP}\"\n\ngen_control() {\n    sed -e \"s/@VERSION@/${1}/\" -e \"s/@ARCH@/${2}/\" \"${PROJECT_DIR}/\"control\n}\n\ngen_deb() {\n    DEB_ROOT=\"$(mktemp -d)/autosign_${1}_${2}\"\n    mkdir -p \"${DEB_ROOT}\"\n    pushd \"${DEB_ROOT}\"\n    mkdir DEBIAN\n    mkdir -p \"Library/MobileSubstrate/DynamicLibraries\"\n    cp -a \"${BUILT_PRODUCTS_DIR}/autosign.dylib\" \"Library/MobileSubstrate/DynamicLibraries\"\n    cp -a \"${SRCROOT}/autosign.plist\" \"Library/MobileSubstrate/DynamicLibraries\"\n    gen_control \"$1\" \"$2\" > DEBIAN/control\n    popd\n    dpkg-deb --root-owner-group --build \"${DEB_ROOT}\" \"${BUILT_PRODUCTS_DIR}/autosign_${1}_${2}.deb\"\n    rm -rf \"${DEB_ROOT}\"\n    echo \"Deb generated at: ${BUILT_PRODUCTS_DIR}/autosign_${1}_${2}.deb\"\n}\n\nif [[ ${BUILT_PRODUCTS_DIR} == *\"iphoneos\"* ]]; then\n    gen_deb \"$VERSION\" iphoneos-arm\nelif [[ ${BUILT_PRODUCTS_DIR} == *\"appletvos\"* ]]; then\n    gen_deb \"$VERSION\" appletvos-arm64\nfi\n";
+			shellScript = "set -e\n\nexport PATH=\"/opt/procursus/bin:/opt/procursus/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH\"\n\nif [[ ${BUILT_PRODUCTS_DIR} = *\"simulator\"* ]]; then\n    exit 0;\nfi\n\nif [ -d \"${BUILT_PRODUCTS_DIR}/Build\" ]; then\n    rm -r \"${BUILT_PRODUCTS_DIR}/Build\"\nfi\n\necho $PWD\n\nVERSION=\"$MARKETING_VERSION\"\nif [[ ${BUILT_PRODUCTS_DIR} == *\"Build/Products/Debug\"* ]]; then\n    VERSION=\"$VERSION+debug\"\nfi\n\nAUTOSIGN_TMP=\"$(mktemp -d)/autosign_dylib_sign\"\nmkdir -p \"${AUTOSIGN_TMP}\"\ncp -aL \"${BUILT_PRODUCTS_DIR}/libautosign.dylib\" \"${AUTOSIGN_TMP}/autosign.dylib\"\nif [ \"${DEBUG}\" != \"1\" ]; then\n    $(xcrun --find strip) -x \"${AUTOSIGN_TMP}/autosign.dylib\"\nfi\ncodesign -fs - \"${AUTOSIGN_TMP}/autosign.dylib\"\ncp -a \"${AUTOSIGN_TMP}/autosign.dylib\" \"${BUILT_PRODUCTS_DIR}\"\nrm -rf \"${AUTOSIGN_TMP}\"\n\ngen_control() {\n    sed -e \"s/@VERSION@/${1}/\" -e \"s/@ARCH@/${2}/\" \"${PROJECT_DIR}/\"control\n}\n\ngen_deb() {\n    DEB_ROOT=\"$(mktemp -d)/autosign_${1}_${2}\"\n    mkdir -p \"${DEB_ROOT}\"\n    pushd \"${DEB_ROOT}\"\n    mkdir DEBIAN\n    mkdir -p \"Library/MobileSubstrate/DynamicLibraries\"\n    cp -a \"${BUILT_PRODUCTS_DIR}/autosign.dylib\" \"Library/MobileSubstrate/DynamicLibraries\"\n    cp -a \"${SRCROOT}/autosign.plist\" \"Library/MobileSubstrate/DynamicLibraries\"\n    gen_control \"$1\" \"$2\" > DEBIAN/control\n    popd\n    dpkg-deb --root-owner-group --build \"${DEB_ROOT}\" \"${BUILT_PRODUCTS_DIR}/autosign_${1}_${2}.deb\"\n    rm -rf \"${DEB_ROOT}\"\n    echo \"Deb generated at: ${BUILT_PRODUCTS_DIR}/autosign_${1}_${2}.deb\"\n}\n\nif [[ ${BUILT_PRODUCTS_DIR} == *\"iphoneos\"* ]]; then\n    gen_deb \"$VERSION\" iphoneos-arm\nelif [[ ${BUILT_PRODUCTS_DIR} == *\"appletvos\"* ]]; then\n    gen_deb \"$VERSION\" appletvos-arm64\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -180,10 +180,7 @@
 			buildSettings = {
 				AD_HOC_CODE_SIGNING_ALLOWED = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					arm64,
-					arm64e,
-				);
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -235,6 +232,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/include";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -242,6 +240,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "appletvos iphoneos";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -250,10 +249,7 @@
 			buildSettings = {
 				AD_HOC_CODE_SIGNING_ALLOWED = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					arm64,
-					arm64e,
-				);
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -299,12 +295,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/include";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "appletvos iphoneos";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
