@@ -104,14 +104,14 @@ bool resign_required(char* path, struct stat* st_p) {
             goto cleanup;
         }
         size_t fat_headers_size = sizeof(struct fat_arch) * ntohl(fat->nfat_arch) + sizeof(struct fat_header);
-        if (fat_headers_size > st_p->st_size) {
+        if (fat_headers_size > (size_t)st_p->st_size) {
             log("file %s is truncated\n", path);
             goto cleanup;
         }
         const struct fat_arch* archs = (const struct fat_arch*)(fat + 1);
         for (uint32_t i = 0; i < ntohl(fat->nfat_arch); i++) {
             if (ntohl(archs[i].cputype) != CPU_TYPE_ARM64) continue;
-            if ((ntohl(archs[i].offset) + sizeof(struct mach_header_64*)) > st_p->st_size) {
+            if ((ntohl(archs[i].offset) + sizeof(struct mach_header_64*)) > (size_t)st_p->st_size) {
                 log("file %s is truncated\n", path);
                 goto cleanup;
             }
@@ -126,18 +126,18 @@ bool resign_required(char* path, struct stat* st_p) {
     if (hdr->magic == FAT_CIGAM_64) {
         const struct fat_header* fat = (const struct fat_header*) hdr;
         size_t fat_headers_size = sizeof(struct fat_arch_64) * ntohl(fat->nfat_arch) + sizeof(struct fat_header);
-        if (fat_headers_size > st_p->st_size) {
+        if (fat_headers_size > (size_t)st_p->st_size) {
             log("file %s is truncated\n", path);
             goto cleanup;
         }
         const struct fat_arch_64* archs = (const struct fat_arch_64*)(fat + 1);
         for (uint32_t i = 0; i < ntohl(fat->nfat_arch); i++) {
             if (ntohl(archs[i].cputype) != CPU_TYPE_ARM64) continue;
-            if ((ntohl(archs[i].offset) + sizeof(struct mach_header_64*)) > st_p->st_size) {
+            if ((ntohll(archs[i].offset) + sizeof(struct mach_header_64*)) > (size_t)st_p->st_size) {
                 log("file %s is truncated\n", path);
                 goto cleanup;
             }
-            const struct mach_header_64* arch_header = (const struct mach_header_64*)(data + ntohl(archs[i].offset));
+            const struct mach_header_64* arch_header = (const struct mach_header_64*)(data + ntohll(archs[i].offset));
             if (check_mach_header(arch_header)) {
                 retval = true;
                 break;
