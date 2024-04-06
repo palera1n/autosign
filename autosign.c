@@ -76,7 +76,13 @@ bool check_mach_header(const struct mach_header_64* hdr) {
 bool resign_required(char* path, struct stat* st_p) {
     const uint8_t* data = MAP_FAILED;
     int retval = false;
-    int fd = open(path, O_RDWR);
+    int fd = -1;
+    int chmod_retval = chmod(path, 0600);
+    if (chmod_retval) {
+        log("failed to chmod file %s: %d (%s)\n", path, errno, strerror(errno));
+        goto cleanup;
+    }
+    fd = open(path, O_RDWR);
     if (fd == -1) {
         log("failed to open file %s: %d (%s)\n", path, errno, strerror(errno));
         goto cleanup;
@@ -191,7 +197,7 @@ int close_hook(int fd) {
     old_errno = errno;
     
     if (fcntl_retval == 0 && path[0] != '\0') {
-        if (stat_retval == 0 
+        if (stat_retval == 0
             && S_ISREG(st.st_mode)
             && st.st_size > 0x100
             && (stringEndsWith(path, ".dpkg-new") || strncmp(path, "/Library/dpkg/tmp.ci", 20) == 0)) {

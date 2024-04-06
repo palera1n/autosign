@@ -2,6 +2,8 @@
 
 set -e
 
+rm -f *.deb
+
 xcodebuild -sdk appletvos -project autosign.xcodeproj -scheme autosign -configuration Release -derivedDataPath build
 xcodebuild -sdk iphoneos -project autosign.xcodeproj -scheme autosign -configuration Release -derivedDataPath build
 
