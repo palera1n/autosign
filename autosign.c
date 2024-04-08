@@ -160,9 +160,10 @@ cleanup:
 }
 
 int autosign(char* path, struct stat* st_p) {
-    if (!resign_required(path, st_p)) return 0;
+    int retval = 0;
+    if (!resign_required(path, st_p)) goto cleanup_chmod;
     pid_t pid;
-    int retval = nick_chan_posix_spawn(&pid, "/usr/bin/ldid", NULL, NULL, (char*[]){ "/usr/bin/ldid", "-s", path, NULL }, environ);
+    retval = nick_chan_posix_spawn(&pid, "/usr/bin/ldid", NULL, NULL, (char*[]){ "/usr/bin/ldid", "-s", path, NULL }, environ);
     if (retval) {
         log("posix_spawn ldid failed: %d (%s)\n", retval, strerror(retval));
         return -1;
@@ -176,6 +177,7 @@ int autosign(char* path, struct stat* st_p) {
             retval = WEXITSTATUS(status);
         }
     };
+cleanup_chmod:
     log("fixing file permissions: mode: %d\n", st_p->st_mode);
     retval = chmod(path, st_p->st_mode & 07777);
     if (retval) {
